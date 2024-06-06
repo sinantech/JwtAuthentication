@@ -26,7 +26,7 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF protection
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(" ").permitAll() // Allow specific paths
+                        .requestMatchers("/api/v1/auth/**").permitAll() // Allow specific paths
                         .anyRequest().authenticated() // All other requests need authentication
                 )
                 .sessionManagement(session -> session
